@@ -1,0 +1,150 @@
+================================================================================
+HASHMAP BENCHMARK SUMMARY STATISTICS
+================================================================================
+
+Average Performance by Hashmap Type (across all benchmarks, multithreaded only):
+--------------------------------------------------------------------------------
+                                        avg_ns_per_op                         avg_ops_per_sec                                        
+                                                 mean     std    min      max            mean           std         min           max
+hashmap_type                                                                                                                         
+AbseilFlatHashMapLocked                        543.22  574.04   3.86  1961.59     16290977.21  4.116838e+07   509910.49  2.593756e+08
+AbseilNodeHashMapLocked                        390.43  656.53   6.96  3630.83     15576962.18  2.731130e+07   275779.36  1.484041e+08
+AbseilNodeHashMapPagingAllocator               462.75  759.91   8.44  4109.72     13514532.38  2.299467e+07   243662.15  1.217651e+08
+PhmapParallelFlatHashMapSpinlock               405.90  510.55  33.25  1680.66      9265800.16  8.058583e+06   621998.61  3.008063e+07
+PhmapParallelNodeHashMapPagingAllocator        185.91  159.24  32.25   633.13     10426923.05  7.603067e+06  1633905.41  3.112960e+07
+PhmapParallelNodeHashMapSpinlock                80.47   30.76  27.47   153.33     14820201.63  6.430280e+06  6584354.28  3.640543e+07
+PklEHashMap                                    120.60   98.46   2.15   436.72     43240459.15  9.062917e+07  2319803.21  4.690013e+08
+PklEHashMapLocked                               84.51   79.29   1.76   382.16     59013346.20  1.141529e+08  2666262.11  5.779064e+08
+StdUnorderedMapLocked                          347.24  500.50   1.72  1749.18     52146430.38  1.176844e+08   582734.62  5.887340e+08
+
+Average Performance by Operation Type:
+--------------------------------------------------------------------------------
+                avg_ns_per_op                          avg_ops_per_sec                                        
+                         mean      std    min      max            mean           std         min           max
+operation_type                                                                                                
+40i50l10e              317.47   212.85  48.80   950.85    5.272193e+06  4.023164e+06  1059058.96  2.054783e+07
+50r50w                 211.86   182.74  29.26   760.81    9.123017e+06  6.903069e+06  1328780.73  3.438004e+07
+90r10w                 210.54   181.77  28.48   762.73    9.152585e+06  6.935224e+06  1327387.84  3.516153e+07
+batchInsert            432.02   464.07  50.56  1713.16    5.721776e+06  4.859498e+06   595589.18  1.982314e+07
+batchedLookup           30.37    32.25   1.72   183.11    1.231095e+08  1.430806e+08  5699109.06  5.887340e+08
+contendedInsert        352.75   525.13  14.94  1787.08    1.740249e+07  1.733077e+07   570409.87  6.695300e+07
+erase                  157.11   154.13  17.24   636.81    1.598849e+07  1.415389e+07  1634326.97  5.812919e+07
+insert                 454.84   453.61  78.34  1729.28    4.411118e+06  3.029590e+06   588249.47  1.283863e+07
+lookup                  71.86    24.09  40.45   190.57    1.535525e+07  4.270612e+06  5396085.67  2.473658e+07
+rekey                  849.23  1183.82  21.74  4109.72    1.032589e+07  9.865352e+06   243662.15  4.623200e+07
+
+Best Performing Hashmap at Maximum Thread Count:
+--------------------------------------------------------------------------------
+
+40i50l10eSequential - 40i50l10e (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (148.72 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (6.79 M ops/sec)
+
+40i50l10eSequentialBigValue - 40i50l10e (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (148.57 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (6.80 M ops/sec)
+
+50r50wSequential - 50r50w (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (131.08 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (7.70 M ops/sec)
+
+50r50wSequentialBigValue - 50r50w (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (128.53 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (7.87 M ops/sec)
+
+90r10wSequential - 90r10w (16 threads):
+  Best Latency: PklEHashMapLocked (127.38 ns/op)
+  Best Throughput: PklEHashMapLocked (7.89 M ops/sec)
+
+90r10wSequentialBigValue - 90r10w (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (123.14 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (8.14 M ops/sec)
+
+batchInsertRandom - batchInsert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (104.72 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (13.98 M ops/sec)
+
+batchInsertRandomBigValue - batchInsert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (80.53 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (14.91 M ops/sec)
+
+batchInsertSequential - batchInsert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (82.93 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (15.60 M ops/sec)
+
+batchInsertSequentialBigValue - batchInsert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (75.94 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (14.54 M ops/sec)
+
+batchedLookupRandom - batchedLookup (16 threads):
+  Best Latency: PklEHashMapLocked (3.13 ns/op)
+  Best Throughput: PklEHashMapLocked (333.94 M ops/sec)
+
+batchedLookupRandomBigValue - batchedLookup (16 threads):
+  Best Latency: PklEHashMapLocked (3.57 ns/op)
+  Best Throughput: PklEHashMapLocked (281.74 M ops/sec)
+
+batchedLookupSequential - batchedLookup (16 threads):
+  Best Latency: StdUnorderedMapLocked (2.13 ns/op)
+  Best Throughput: StdUnorderedMapLocked (505.93 M ops/sec)
+
+batchedLookupSequentialBigValue - batchedLookup (16 threads):
+  Best Latency: StdUnorderedMapLocked (2.52 ns/op)
+  Best Throughput: StdUnorderedMapLocked (433.54 M ops/sec)
+
+contendedInsertContended - contendedInsert (16 threads):
+  Best Latency: AbseilNodeHashMapPagingAllocator (58.20 ns/op)
+  Best Throughput: AbseilNodeHashMapPagingAllocator (17.24 M ops/sec)
+
+contendedInsertContendedBigValue - contendedInsert (16 threads):
+  Best Latency: AbseilNodeHashMapLocked (63.42 ns/op)
+  Best Throughput: AbseilNodeHashMapLocked (15.87 M ops/sec)
+
+eraseSequential - erase (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (42.40 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (23.59 M ops/sec)
+
+eraseSequentialBigValue - erase (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (42.14 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (23.74 M ops/sec)
+
+insertRandom - insert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (120.59 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (8.54 M ops/sec)
+
+insertRandomBigValue - insert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (123.37 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (8.79 M ops/sec)
+
+insertSequential - insert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (125.09 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (8.78 M ops/sec)
+
+insertSequentialBigValue - insert (16 threads):
+  Best Latency: PhmapParallelNodeHashMapSpinlock (115.61 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapSpinlock (9.33 M ops/sec)
+
+lookupRandom - lookup (16 threads):
+  Best Latency: PklEHashMapLocked (41.24 ns/op)
+  Best Throughput: PklEHashMapLocked (24.26 M ops/sec)
+
+lookupRandomBigValue - lookup (16 threads):
+  Best Latency: PklEHashMapLocked (41.47 ns/op)
+  Best Throughput: PklEHashMapLocked (24.12 M ops/sec)
+
+lookupSequential - lookup (16 threads):
+  Best Latency: PklEHashMapLocked (40.45 ns/op)
+  Best Throughput: PklEHashMapLocked (24.74 M ops/sec)
+
+lookupSequentialBigValue - lookup (16 threads):
+  Best Latency: PklEHashMapLocked (40.61 ns/op)
+  Best Throughput: PklEHashMapLocked (24.63 M ops/sec)
+
+rekeySequential - rekey (16 threads):
+  Best Latency: PklEHashMapLocked (74.75 ns/op)
+  Best Throughput: PklEHashMapLocked (13.51 M ops/sec)
+
+rekeySequentialBigValue - rekey (16 threads):
+  Best Latency: PhmapParallelNodeHashMapPagingAllocator (83.26 ns/op)
+  Best Throughput: PhmapParallelNodeHashMapPagingAllocator (12.03 M ops/sec)
+
