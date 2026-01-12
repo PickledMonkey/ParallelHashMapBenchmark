@@ -2,7 +2,7 @@
 
 This repository contains reference code and benchmark results from comprehensive testing of various parallel hashmap implementations in C++. This is **not runnable code** - it's intended as reference material for developers researching high-performance concurrent data structures.
 
-> **📖 Full Article**: For detailed analysis and results, see the article at [pggame.dev](https://pggame.dev)
+> **📖 Full Article**: For detailed analysis and results, see the article at [pggame.dev]([https://pggame.dev](https://pggame.dev/2026/01/12/making-a-parallel-hash-map-should-you-even-try/))
 
 ## Intended Use
 
